@@ -1,9 +1,11 @@
 <h1 align="center">Разработка системы авторизации и управления пользователями на React-Typescript с использованием JWT, REST-API и Ant Design на базе express и mongoDB 👋</h1>
 
 <h2>В этом проекте использованы:</h2>
+<p>Typescript</p>
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40" />
 </a>
+<p>Ant Design</p>
 <a href="https://ant.design/" target="_blank" rel="noreferrer">
     <img src="https://img.jsdelivr.com/github.com/ant-design.png" alt="Ant Design" width="40" height="40" />
 </a>
