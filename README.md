@@ -4,14 +4,17 @@
 
 
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
-<p>Typescript</p>
+
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40" />
+        
+        <p>Typescript</p>
 </a>
 
 
 <a href="https://ant.design/" target="_blank" rel="noreferrer">
-<p>Ant Design</p>
+
     <img src="https://img.jsdelivr.com/github.com/ant-design.png" alt="Ant Design" width="40" height="40" />
+    <p>Ant Design</p>
 </a>
 
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
