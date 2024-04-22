@@ -26,25 +26,25 @@ class authController {
   async registration(req: Request, res: Response) {
     try {
       const errors = validationResult(req);
-      console.log("errors", errors);
+      
       if (!errors.isEmpty()) {
         return res
           .status(400)
-          .json({ message: `Registration error, ${errors}` });
+          .json({ message: `Ошибка при регистрации, ${JSON.stringify(errors)}` });
       }
 
       const { userName, email, password } = req.body;
       const candidate = await User.findOne({ userName });
       const candidateEmail = await User.findOne({ email });
       if (candidate) {
-        res
+       return res
           .status(400)
-          .json({ message: "A user with that name already exists" });
+          .json({ message: "Пользователь с таким именем уже существует" });
       }
       if (candidateEmail) {
-        res
+       return res
           .status(400)
-          .json({ message: "A user with that email already exists" });
+          .json({ message: "Пользователь с такой почтой уже существует" });
       }
       const hashedPassword = await bcrypt.hash(password, 6);
       const userRole = await Role.findOne({ value: "USER" });
@@ -57,25 +57,28 @@ class authController {
       await newUser.save();
       return res
         .status(200)
-        .json({ message: "The user has been successfully registered" });
+        .json({ message: "Пользователь был успешно зарегистрирован" });
     } catch (err) {
       console.log(`Registration error :${err}`);
-      res.status(400).json({ message: "Registration error" });
+     return res.status(400).json({ message: "Ошибочка при регистрации" });
     }
   }
   async login(req: Request, res: Response) {
-    try {
+   try {
       const { email, password } = req.body;
       const user = (await User.findOne({ email })) as UserType;
+      console.log('user', user)
       if (!user) {
-        res
-          .send(400)
-          .json({ message: `User with email ${email} has not been found` });
+       return res
+          .status(400)
+          .json({ message: `Пользователь с адресом ${email} не найден` });
       }
 
-      const validPassword = bcrypt.compare(password, user?.password);
+      const validPassword = bcrypt.compareSync(password, user?.password);
+      console.log('password',password)
+      console.log('user.password',user.password)
       if (!validPassword) {
-        res.send(400).json({ message: `The wrong password was entered` });
+       return res.status(400).json({ message: `Введен неверный пароль` });
       }
 
       const token = generateAccessToken(
@@ -91,18 +94,18 @@ class authController {
         roles: user.roles,
         token,
       });
-    } catch (err) {
+    }  catch (err) {
       console.log(`Login error :${err}`);
-      res.status(400).json({ message: "Login error" });
-    }
+    return  res.status(400).json({ message: "Ошибка входа" });
+    } 
   }
   async getUsers(req: Request, res: Response) {
     try {
       const allUsers = await User.find();
-      res.json(allUsers);
+    return  res.json(allUsers);
     } catch (err) {
       console.log(`getUsers error :${err}`);
-      res.status(400).json({ message: "getUsers error" });
+    return  res.status(400).json({ message: "Ошибка при получении пользователей" });
     }
   }
 

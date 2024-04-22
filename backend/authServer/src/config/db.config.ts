@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import Role from "../models/Role";
 import User from "../models/User";
+import bcrypt from "bcrypt";
 import "dotenv/config";
 
 export const dbConnect = async () => {
@@ -31,17 +32,20 @@ const checkingUsers = async function () {
   const usersCount = await User.countDocuments();
 
   if (usersCount === 0) {
+    const hashedUserPassword = await bcrypt.hash('user11', 10);
+    const hashedAdminPassword = await bcrypt.hash('admin1', 10);
+
     await User.create({
       userName: "User",
       email: "user@test.test",
       roles: ["USER"],
-      password: "user11",
+      password: hashedUserPassword,
     });
     await User.create({
       userName: "Admin",
       email: "admin@test.test",
       roles: ["ADMIN"],
-      password: "admin1",
+      password:hashedAdminPassword,
     });
     console.log("Users are added to DB");
   } else {
