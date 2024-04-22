@@ -5,7 +5,7 @@
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40" />
 </a>
 <a href="https://ant.design/" target="_blank" rel="noreferrer">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/antd/antd-original.svg" alt="Ant Design" width="40" height="40" />
+    <img src="https://img.jsdelivr.com/github.com/ant-design.png" alt="Ant Design" width="40" height="40" />
 </a>
 
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
