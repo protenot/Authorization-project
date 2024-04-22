@@ -1,4 +1,4 @@
-<h1 align="center">Разработка системы авторизации и управления пользователями на React-Typescript с использованием JWT, REST-API и Ant Design на базе express и mongoDB 👋</h1>
+<h1 align="center">Разработка системы авторизации и управления пользователями на React-Typescript с использованием JWT, REST-API и Ant Design на базе express и mongoDB</h1>
 
 <h2>В этом проекте использованы:</h2>
 
@@ -30,9 +30,11 @@
 </a>
 
 <a href="https://react-query.tanstack.com/" target="_blank" rel="noreferrer">
+<p>RTK Query</p>
     <img src="https://redux-toolkit.js.org/img/redux.svg" alt="RTK Query" width="40" height="40" />
 </a>
 
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">
+<p>MongoDB</p>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="40" height="40" />
 </a>
