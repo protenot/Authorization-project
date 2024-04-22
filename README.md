@@ -39,3 +39,16 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="40" height="40" />
 </a>
 </div>
+# Для запуска проекта, необходимо выполнить следующие шаги:
+1. Склонировать репозиторий проекта по ссылкеhttps://github.com/protenot/Authorization-project на свой компьютер.
+```
+git clone https://github.com/protenot/Authorization-project
+```
+2. Открыть терминал (или командную строку) и перейти в  директорию проекта backend/authServer.
+```
+cd backend/authServer
+```
+3. Установить зависимости для серверной части проекта. Введите следующую команду в терминале:
+```
+npm install
+```
