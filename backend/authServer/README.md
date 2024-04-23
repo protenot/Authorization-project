@@ -1,4 +1,4 @@
-# HealthyLifestyle
+
 
 ## Схема проверки работоспособности
 
@@ -6,7 +6,7 @@
 
 ### 1. Регистрация пользователя
 
-URL: POST http://localhost:5000/auth/registration
+URL: POST http://localhost:8080/auth/registration
 
 <u>Тело запроса:</u>
 {  
@@ -29,7 +29,7 @@ URL: POST http://localhost:5000/auth/registration
 
 ### 2. Вход пользователя
 
-URL: POST http://localhost:5000/auth/login
+URL: POST http://localhost:8080/auth/login
 
 <u>Тело запроса:</u>
 {  
@@ -40,6 +40,6 @@ URL: POST http://localhost:5000/auth/login
 
 ### 3. Получение списка пользователей
 
-URL: GET http://localhost:5000/auth/users
+URL: GET http://localhost:8080/auth/users
 
 Для получения списка пользователей, пока необходима роль ADMIN, поэтому необходимо ввести соответствующий токен при осуществлении GET запроса.
