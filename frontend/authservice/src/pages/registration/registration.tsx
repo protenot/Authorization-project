@@ -21,16 +21,20 @@ export const Registration = () => {
   const [error, setError] = useState("");
   const [registerUser] = useRegistrationMutation();
 
+
   useEffect(() => {
     if (user) {
-      navigate("/");
+    
+     
+      navigate("/auth/currentUser");
     }
   }, [navigate, user]);
 
   const register = async (data: RegisterData) => {
     try {
       await registerUser(data).unwrap();
-      navigate("/");
+      navigate("/auth/currentUser");
+      
     } catch (err) {
       const mayBeError = isErrorWithMessages(err);
       if (mayBeError) {
@@ -54,7 +58,7 @@ export const Registration = () => {
               placeholder="Повторите пароль"
             />
 
-            <MyButton type="primary" htmlType="submit">
+            <MyButton type="primary" htmlType="submit" >
               Войти
             </MyButton>
           </Form>

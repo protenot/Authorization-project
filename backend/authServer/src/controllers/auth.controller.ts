@@ -55,10 +55,25 @@ class authController {
         roles: [userRole?.value],
       });
       await newUser.save();
-      return res
+      /* return res
         .status(200)
-        .json({ message: "Пользователь был успешно зарегистрирован" });
-    } catch (err) {
+        .json({ message: "Пользователь был успешно зарегистрирован" }); */
+        const token = generateAccessToken(
+          newUser._id,
+          newUser.userName,
+          newUser.email,
+          newUser.roles,
+        );
+        return res.status(200).json({
+          id: newUser._id,
+          userName:newUser.userName,
+          email: newUser.email,
+          roles:newUser.roles,
+          token,
+        });
+    
+    
+      } catch (err) {
       console.log(`Registration error :${err}`);
      return res.status(400).json({ message: "Ошибочка при регистрации" });
     }
@@ -75,8 +90,7 @@ class authController {
       }
 
       const validPassword = bcrypt.compareSync(password, user?.password);
-      console.log('password',password)
-      console.log('user.password',user.password)
+     
       if (!validPassword) {
        return res.status(400).json({ message: `Введен неверный пароль` });
       }

@@ -5,6 +5,7 @@ import { MyLayout } from "../../components/layout/myLayout";
 
 export const CurrentUser = () => {
   const currentUser = useCurrentUserQuery();
+  console.log('currentUser.currentData',currentUser.currentData)
   if (!currentUser.currentData) {
     return <Navigate to="/" />;
   }
