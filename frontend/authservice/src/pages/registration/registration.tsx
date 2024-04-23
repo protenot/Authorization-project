@@ -26,14 +26,14 @@ export const Registration = () => {
     if (user) {
     
      
-      navigate("/auth/currentUser");
+      navigate("/auth/login");
     }
   }, [navigate, user]);
 
   const register = async (data: RegisterData) => {
     try {
       await registerUser(data).unwrap();
-      navigate("/auth/currentUser");
+      //navigate("/auth/login");
       
     } catch (err) {
       const mayBeError = isErrorWithMessages(err);

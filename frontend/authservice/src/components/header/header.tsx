@@ -1,16 +1,14 @@
-import React from "react";
 import { Layout, Space, Typography } from "antd";
-//import { TeamOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch} from "react-redux";
+import { HomeOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
 import { MyButton } from "../myButton/myButton";
 import { Paths } from "../../paths";
 import styles from "./header.module.css";
-import { HomeOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
-import { logout, selectUser } from "../../features/auth/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
 
 export const Header = () => {
-  const user = useSelector(selectUser);
+  const tokenInLS = localStorage.getItem('token');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onLogOutClick = () => {
@@ -28,7 +26,7 @@ export const Header = () => {
           </MyButton>
         </Link>
       </Space>
-      {user ? (
+      {tokenInLS ? (
         <MyButton
           type="primary"
           onClick={onLogOutClick}

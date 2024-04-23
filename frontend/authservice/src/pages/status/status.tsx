@@ -13,15 +13,26 @@ export const Status = () => {
   const { status } = useParams();
   return (
     <Row align="middle" justify="center" style={{ width: "100%" }}>
-      <Result
+     {status ===  'restricted' ?
+     ( <Result
+      status="warning"
+      title={Statuses[status]}
+      extra={
+        <Button key="dashbord">
+          <Link to="/"> Вернуться на главную</Link>
+        </Button>
+      }
+    />):
+      (<Result
         status={status ? "success" : 404}
         title={status ? Statuses[status] : "Не найдено"}
         extra={
           <Button key="dashbord">
-            <Link to="/"> Вернуться на главную</Link>
+            <Link to="/users"> Вернуться к просмотру пользователей</Link>
           </Button>
         }
-      />
+      />)
+}
     </Row>
   );
 };

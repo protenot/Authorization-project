@@ -9,21 +9,22 @@ import { Paths } from "../../paths";
 import { UserData, useLoginMutation } from "../../app/services/auth";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
 import { ErrorMessage } from "../../components/error-message/error";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/auth/authSlice";
+//import { useSelector } from "react-redux";
+//import { selectUser } from "../../features/auth/authSlice";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [loginUser, loginUserResult] = useLoginMutation();
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const user = useSelector(selectUser);
+ // const user = useSelector(selectUser);
+  const tokenInLS = localStorage.getItem('token');
   useEffect(() => {
-    if (user) {
+    if (tokenInLS) {
       const userIsLoggedIn = true;
       setIsLoggedIn(userIsLoggedIn);
     }
-  }, [user]);
+  }, [tokenInLS]);
 
   const login = async (data: UserData) => {
     try {
