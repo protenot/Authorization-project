@@ -29,7 +29,7 @@ const columns = [
 export const Users = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
-  console.log("user", user);
+
   const { data, isLoading } = useGetAllUsersQuery();
   useEffect(() => {
     if (!user) {
