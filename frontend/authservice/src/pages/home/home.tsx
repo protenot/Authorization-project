@@ -1,22 +1,20 @@
 import { useSelector } from "react-redux";
 import { MyLayout } from "../../components/layout/myLayout";
 import { selectUser } from "../../features/auth/authSlice";
-//import { Link } from "react-router-dom";
-//import { Paths } from "../../paths";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, ChangeEvent } from "react";
-//import { MyInput } from "../../components/myInput/myInput";
 import { Input, Space} from "antd";
 import { MyButton } from "../../components/myButton/myButton";
-//import { getMealData } from "../../app/services/getMealData";
 import { MealList } from "../../components/mealList/mealList";
 import { MealResponseType } from "../../types";
+import styles from "./home.module.css";
 
 export const Home = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const [mealData, setMealData] = useState<MealResponseType|null>(null);
   const [calories, setCalories] = useState(2000);
+  console.log('calories', calories)
   useEffect(() => {
     if (!user) {
       navigate("/auth/login");
@@ -39,19 +37,23 @@ function getMealData() {
 }
 function handleChange(e:ChangeEvent<HTMLInputElement>) {
   const value = parseInt(e.target.value);
+  console.log('value', calories)
   setCalories(value);
   
 }
   
   return (
-    <MyLayout>
-     
-      <div className="Home">
+    <MyLayout >
+     <div className={styles.home}>
+      <h2> Введите количество калорий</h2>
+      <div className='home'>
         <section className="control">
+          
           <Input 
+          className="input-meal"
           type = 'number' 
           name="calories" 
-          placeholder={"Введите количество калорий(2000 по умолчанию)"}
+          placeholder={"Калории(2000 по умолчанию)"}
           style={{width:'50%', textAlign:'center', margin: "0 auto"}}
           onChange={handleChange}  
           />
@@ -64,6 +66,7 @@ function handleChange(e:ChangeEvent<HTMLInputElement>) {
         </section>
         {mealData && <MealList mealData={mealData} />}
 
+      </div>
       </div>
     </MyLayout>
   );

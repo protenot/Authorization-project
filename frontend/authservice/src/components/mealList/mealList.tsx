@@ -1,14 +1,21 @@
 import { Meal } from "../meal/meal";
 import { MealResponseType } from "../../types";
+import styles from "./mealList.module.css";
+import { MySpin } from "../mySpin/mySpin";
 
 type Props = {
     mealData: MealResponseType;
   };
 
 export const MealList = ({ mealData }: Props) => {
+
   const { nutrients } = mealData;
+  
+  if (!mealData) {
+    return <MySpin/>; 
+  }
   return (
-    <main>
+    <main className={styles.mealList}>
       <section className="nutrients">
         <h1> Состав </h1>
         <ul>

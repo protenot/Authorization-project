@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-//import { fetchData } from "../../app/services/fetchData";
 import {  MealType } from "../../types";
-import Link from "antd/es/typography/Link";
+//import Link from "antd/es/typography/Link";
+import styles from "./meal.module.css";
+import { MySpin } from "../mySpin/mySpin";
 
 export const Meal = (meal: MealType) => {
   const [imageURL, setImageUrl] = useState("");
   useEffect(() => {
+    if(meal){
     fetch(
         `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=cea5775e8e6340d19ba2df6cd5863531&includeNutrition=false`,
       )
@@ -16,18 +18,21 @@ export const Meal = (meal: MealType) => {
         .catch(() => {
           console.log("error");
         });
-    }, [meal.id]);
+    }
+    }, [meal, meal.id]);
   
-  
+     if (!meal) {
+        return <MySpin/>;
+      } 
 
-  return <article>
+  return <article className={styles.meal}>
     <h1>{meal.title}</h1>
     <img src = {imageURL} alt = "recipe"/>
     <ul className="instructions">
-        <li>Preparation time: {meal.readyInMinutes}</li>
-        <li>Number of serving:{meal.servings}</li>
+        <li>Время приготовления: {meal.readyInMinutes}</li>
+        <li>Количество порций: {meal.servings}</li>
       </ul>
-      <Link href={meal.sourceUrl} />
+      <a className="meal-link" href={meal.sourceUrl}>Посмотреть рецепт</a>
 
     </article>;
 };
