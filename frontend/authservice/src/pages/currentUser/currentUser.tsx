@@ -5,11 +5,11 @@ import { MyLayout } from "../../components/layout/myLayout";
 
 export const CurrentUser = () => {
   const currentUser = useCurrentUserQuery();
-  console.log('currentUser.currentData',currentUser.currentData)
+  console.log("currentUser.currentData", currentUser.currentData);
   if (!currentUser.currentData) {
     return <Navigate to="/" />;
   }
- 
+
   return (
     <MyLayout>
       <Descriptions title="Информация о пользователе" bordered>

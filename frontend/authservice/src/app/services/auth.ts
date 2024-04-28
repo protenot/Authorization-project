@@ -1,8 +1,6 @@
-import { UserType } from "../../../../../backend/authServer/src/models/User";
 import { api } from "./api";
+import { ResponseLoginData, UserData } from "../../types";
 
-export type UserData = Omit<UserType, "_id">;
-export type ResponseLoginData = UserType & { token: string };
 
 export const authApi = api.injectEndpoints({
   endpoints: (builder) => ({

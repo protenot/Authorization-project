@@ -6,7 +6,8 @@ import { PasswordInput } from "../../components/passwordInput/passwordInput";
 import { MyButton } from "../../components/myButton/myButton";
 import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../paths";
-import { UserData, useLoginMutation } from "../../app/services/auth";
+import {UserData} from "../../types";
+import {  useLoginMutation } from "../../app/services/auth";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
 import { ErrorMessage } from "../../components/error-message/error";
 //import { useSelector } from "react-redux";
@@ -17,8 +18,8 @@ export const Login = () => {
   const [loginUser, loginUserResult] = useLoginMutation();
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
- // const user = useSelector(selectUser);
-  const tokenInLS = localStorage.getItem('token');
+  // const user = useSelector(selectUser);
+  const tokenInLS = localStorage.getItem("token");
   useEffect(() => {
     if (tokenInLS) {
       const userIsLoggedIn = true;

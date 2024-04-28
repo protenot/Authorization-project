@@ -1,8 +1,8 @@
 import React from "react";
 import { Layout as AntLayout } from "antd";
-
-import styles from "./layout.module.css";
 import { Header } from "../header/header";
+import styles from "./layout.module.css";
+
 
 export type Props = {
   children: React.ReactNode;

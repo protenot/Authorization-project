@@ -1,9 +1,9 @@
-import { UserType } from "../../../../../backend/authServer/src/models/User";
 import { Card, Form, Space } from "antd";
-import { MyInput } from "../myInput/myInput";
-import { ErrorMessage } from "../error-message/error";
 import { MyButton } from "../myButton/myButton";
+import { MyInput } from "../myInput/myInput";
 import { PasswordInput } from "../passwordInput/passwordInput";
+import { ErrorMessage } from "../error-message/error";
+import { UserType } from "../../types";
 type Props<T> = {
   onFinish: (value: T) => void;
   btnText: string;

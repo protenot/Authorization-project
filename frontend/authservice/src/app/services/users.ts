@@ -1,7 +1,5 @@
-import { UserType } from "../../../../../backend/authServer/src/models/User";
 import { api } from "./api";
-import { ResponseLoginData } from "./auth";
-
+import { ResponseLoginData, UserType } from "../../types";;
 
 export const usersApi = api.injectEndpoints({
   endpoints: (builder) => ({

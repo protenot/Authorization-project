@@ -1,4 +1,5 @@
 import { Form, Input } from "antd";
+
 type InputType = {
   name: string;
   placeholder: string;

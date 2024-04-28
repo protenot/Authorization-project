@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ResponseLoginData, authApi } from "../../app/services/auth";
+import {  authApi } from "../../app/services/auth";
+import { ResponseLoginData } from "../../types";
 import { RootState } from "../../app/store";
 
 interface InitialState {

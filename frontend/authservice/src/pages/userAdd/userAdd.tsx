@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MyLayout } from "../../components/layout/myLayout";
 import { Row } from "antd";
 import { UserForm } from "../../components/userForm/userForm";
