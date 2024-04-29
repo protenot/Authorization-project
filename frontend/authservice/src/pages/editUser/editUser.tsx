@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Row } from "antd";
 import {
   useEditUserMutation,
   useGetOneUserQuery,
 } from "../../app/services/users";
 import { MySpin } from "../../components/mySpin/mySpin";
 import { MyLayout } from "../../components/layout/myLayout";
-import { Row } from "antd";
 import { UserForm } from "../../components/userForm/userForm";
-import { UserType } from "../../../../../backend/authServer/src/models/User";
+import { UserType } from "../../types";
 import { Paths } from "../../paths";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
-import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
 
 export const EditUser = () => {
@@ -58,13 +58,14 @@ export const EditUser = () => {
 
   return (
     <MyLayout>
-      <Row align="middle" justify="center">
+      <Row align="middle" justify="center" style={{width:'100%'}} >
         <UserForm
           title="Редактировать пользователя"
           btnText="Редактировать"
           error={error}
           user={data}
           onFinish={handleEditUser}
+          
         ></UserForm>
       </Row>
     </MyLayout>

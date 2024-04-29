@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Descriptions, Divider, Modal, Space } from "antd";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import {
   useDeleteUserMutation,
   useGetOneUserQuery,
 } from "../../app/services/users";
 import { MySpin } from "../../components/mySpin/mySpin";
 import { MyLayout } from "../../components/layout/myLayout";
-import { Descriptions, Divider, Modal, Space } from "antd";
 import { MyButton } from "../../components/myButton/myButton";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { ErrorMessage } from "../../components/error-message/error";
 import { Paths } from "../../paths";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
-import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
 
 export const UserPage = () => {
@@ -73,16 +73,13 @@ export const UserPage = () => {
         <Descriptions.Item label="Почта" span={3}>
           {`${data.email}`}
         </Descriptions.Item>
-        <Descriptions.Item label="Пароль" span={3}>
-          {`${data.password}`}
-        </Descriptions.Item>
         <Descriptions.Item label="Роль" span={3}>
           {`${data.roles}`}
         </Descriptions.Item>
       </Descriptions>
       {
         <>
-          <Divider orientation="left">Действия</Divider>
+          <Divider orientation="center" >Действия</Divider>
           <Space>
             <Link to={`/users/edit/${data._id}`}>
               <MyButton shape="round" type="default" icon={<EditOutlined />}>

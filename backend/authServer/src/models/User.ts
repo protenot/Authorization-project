@@ -8,7 +8,6 @@ export interface UserType {
   roles: string[];
 }
 const User = new Schema<UserType>({
- 
   userName: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
 

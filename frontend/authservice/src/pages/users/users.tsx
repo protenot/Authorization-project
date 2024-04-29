@@ -1,13 +1,13 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Table } from "antd";
+import { PlayCircleOutlined } from "@ant-design/icons";
 import { MyLayout } from "../../components/layout/myLayout";
 import { MyButton } from "../../components/myButton/myButton";
-import { PlayCircleOutlined } from "@ant-design/icons";
-import { Table } from "antd";
 import { useGetAllUsersQuery } from "../../app/services/users";
-import { useNavigate } from "react-router-dom";
 import { Paths } from "../../paths";
-import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
-import { useEffect } from "react";
 
 const columns = [
   {

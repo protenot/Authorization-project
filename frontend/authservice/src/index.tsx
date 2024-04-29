@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { ConfigProvider } from "antd";
 import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
 import { Paths } from "./paths";
 import { Login } from "./pages/login/login";
 import { Registration } from "./pages/registration/registration";
@@ -18,6 +17,7 @@ import { EditUser } from "./pages/editUser/editUser";
 import { CurrentUser } from "./pages/currentUser/currentUser";
 import { Home } from "./pages/home/home";
 import { Page404 } from "./pages/404/404";
+import "./index.css";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -74,11 +74,11 @@ root.render(
       <ConfigProvider
         theme={{
           token: {
-            // Seed Token
+            
             colorPrimary: "#00b96b",
             borderRadius: 10,
 
-            // Alias Token
+            
             colorBgContainer: "#f6ffed",
           },
         }}

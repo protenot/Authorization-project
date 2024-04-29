@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { MyLayout } from "../../components/layout/myLayout";
-import { Row } from "antd";
-import { UserForm } from "../../components/userForm/userForm";
-
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Row } from "antd";
+import { MyLayout } from "../../components/layout/myLayout";
+import { UserForm } from "../../components/userForm/userForm";
 import { selectUser } from "../../features/auth/authSlice";
 import { useAddUserMutation } from "../../app/services/users";
-import { UserType } from "../../../../../backend/authServer/src/models/User";
+import { UserType } from "../../types";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
 import { Paths } from "../../paths";
 
@@ -41,7 +40,7 @@ export const UserAdd = () => {
   };
   return (
     <MyLayout>
-      <Row align="middle" justify="center">
+      <Row align="middle" justify="center" style={{width:'100%'}} >
         <UserForm
           title="Добавить пользователя"
           btnText="Добавить"

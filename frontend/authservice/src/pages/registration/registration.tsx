@@ -1,15 +1,15 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, Form, Row, Space, Typography } from "antd";
 import { MyLayout } from "../../components/layout/myLayout";
 import { MyInput } from "../../components/myInput/myInput";
 import { PasswordInput } from "../../components/passwordInput/passwordInput";
 import { MyButton } from "../../components/myButton/myButton";
-import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../paths";
-import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
-import { useEffect, useState } from "react";
 import { useRegistrationMutation } from "../../app/services/auth";
-import { UserType } from "../../../../../backend/authServer/src/models/User";
+import { UserType } from "../../types";
 import { isErrorWithMessages } from "../../utils/is-error-with-messages";
 import { ErrorMessage } from "../../components/error-message/error";
 

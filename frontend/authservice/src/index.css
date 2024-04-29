@@ -10,6 +10,7 @@ html,
 body,
 body > div {
   height: 100%;
+  
 }
 
 body {
@@ -21,3 +22,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+

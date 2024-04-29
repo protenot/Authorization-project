@@ -6,7 +6,6 @@ import "dotenv/config";
 
 export const dbConnect = async () => {
   try {
-
     await mongoose.connect("mongodb://127.0.0.1:27017/auth");
 
     checkingRoles();
@@ -32,8 +31,8 @@ const checkingUsers = async function () {
   const usersCount = await User.countDocuments();
 
   if (usersCount === 0) {
-    const hashedUserPassword = await bcrypt.hash('user11', 10);
-    const hashedAdminPassword = await bcrypt.hash('admin1', 10);
+    const hashedUserPassword = await bcrypt.hash("user11", 10);
+    const hashedAdminPassword = await bcrypt.hash("admin1", 10);
 
     await User.create({
       userName: "User",
@@ -45,7 +44,7 @@ const checkingUsers = async function () {
       userName: "Admin",
       email: "admin@test.test",
       roles: ["ADMIN"],
-      password:hashedAdminPassword,
+      password: hashedAdminPassword,
     });
     console.log("Users are added to DB");
   } else {

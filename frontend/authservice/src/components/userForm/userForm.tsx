@@ -29,7 +29,7 @@ export const UserForm = ({
 
         <Space>
           <ErrorMessage message={error} />
-          <MyButton htmlType="submit">{btnText}</MyButton>
+          <MyButton htmlType="submit" >{btnText}</MyButton>
         </Space>
       </Form>
     </Card>

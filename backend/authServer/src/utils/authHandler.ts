@@ -17,7 +17,7 @@ export const authHandler = async function (
   res: Response,
   next: NextFunction,
 ) {
- /*  if (req.method === "OPTIONS") {
+  /*  if (req.method === "OPTIONS") {
     next();
   } */
   try {
@@ -28,7 +28,7 @@ export const authHandler = async function (
     const decodedData = jwt.verify(token, secret);
 
     req.user = decodedData as UserType;
-    console.log ('req.user', req.user)
+    console.log("req.user", req.user);
 
     next();
   } catch (err) {
