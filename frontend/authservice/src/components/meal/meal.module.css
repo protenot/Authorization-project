@@ -1,0 +1,17 @@
+.meal-link {
+  text-decoration: none;
+  background-color: #7f21eb;
+  color: #f3f3f3;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+.meal-link:hover {
+  background-color: #6c13d1;
+  cursor: pointer;
+}
+img {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
